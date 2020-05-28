@@ -1,8 +1,36 @@
 
-web.xml을 먼저 읽고 
+2020-05-28
 
+web.xml을 먼저 읽고 
 servlet-context.xml
 datasource.xml
 에서 설정
+
+
+					<<	Spring	>>
+-----web.container--------------------------------------------------------
+web.xml을 먼저 읽고 
+	↓			.do시 핸들러매핑								(SQLMapClient)
+Listener	->	DispatcherServlet	->	Controller			--myBatis--
+									MaV						DTO
+									모델&뷰					SQL
+									<-	
+						↓					↑↓Model				↑		connections
+					View				service	->	Dao	->	Dao Support		->		DB
+				View Resolver			인터페이스 <-		<-	Template		<-
+										구현해서 사용
+												Data Access Object
+															DBCP Pooling
+															
+												
+															(이전 jsp에서는)		
+															DataSource
+															Pooling	
+										--------business layer----------------------------			
+			-------spring.container(context)-----------------------------------------												
+----------------------------------------------------------------------------
+
+
+
 
 
