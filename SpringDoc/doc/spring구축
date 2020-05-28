@@ -1,0 +1,8 @@
+
+web.xml을 먼저 읽고 
+
+servlet-context.xml
+datasource.xml
+에서 설정
+
+

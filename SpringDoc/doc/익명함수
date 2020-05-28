@@ -1,0 +1,24 @@
+
+2020-05-27
+
+JQuery
+
+- 익명함수
+function name(){ }이 아닌
+function(){ } 형식
+ : 이름을 짓지 않으므로 재사용하지 않고 메모리를 할당하지 않는다.
+ : 공통단이 아니면 이름을 짓지 않는다.(익명함수사용) -> 이름을 짓는다는 것은 공통단, 혹은 다른곳에서 재사용하겠다는 의미
+
+
+자바스크립트의 window.onload = function(){}와 같음
+$(document).ready(function(){
+  // jQuery methods go here...
+});
+
+
+$('#id').click(function(){
+  // jQuery methods go here...
+});
+
+
+

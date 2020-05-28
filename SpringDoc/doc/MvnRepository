@@ -1,0 +1,13 @@
+
+2020-05-27
+
+Spring context 를 pom.xml에 의존성 추가해주면 스프링이 된다. 
+https://mvnrepository.com/artifact/org.springframework/spring-context/4.3.12.RELEASE
+
+<dependencies>
+  	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context</artifactId>
+	    <version>4.3.12.RELEASE</version>
+	</dependency>
+</dependencies>
