@@ -10,14 +10,14 @@ datasource.xml
 					<<	Spring	>>
 -----web.container--------------------------------------------------------
 web.xml을 먼저 읽고 
-	↓			.do시 핸들러매핑								(SQLMapClient)
-Listener	->	DispatcherServlet	->	Controller			--myBatis--
-									MaV						DTO
-									모델&뷰					SQL
+	↓			.do시 핸들러매핑									(SQLMapClient)
+Listener	->	DispatcherServlet	->		Controller			--myBatis--
+									MaV							DTO
+									모델&뷰						SQL
 									<-	
-						↓					↑↓Model				↑		connections
-					View				service	->	Dao	->	Dao Support		->		DB
-				View Resolver			인터페이스 <-		<-	Template		<-
+						↓					↑↓Model					↑		connections
+					View				service	->	Dao	->		Dao Support		->		DB
+				View Resolver			인터페이스 <-		<-		Template		<-
 										구현해서 사용
 												Data Access Object
 															DBCP Pooling
