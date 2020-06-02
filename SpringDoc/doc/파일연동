@@ -1,0 +1,52 @@
+
+2020-06-02
+
+파일 입출력 기능 추가하기 
+
+
+ 1. 디펜던시 추가 
+ <dependency>
+	    <groupId>commons-io</groupId>
+	    <artifactId>commons-io</artifactId>
+   		 <version>2.6</version>
+</dependency>
+
+
+ 2. servlet-context.xml에 빈 추가 
+<!-- 파일 업로드 처리 -->
+	<bean id="multipartResolver" 
+			class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    	<property name="maxUploadSize" value="104857600"/>	올릴 수 있는 파일의 용량을 제한시킴, 바이트단위 = 100MG 
+   		<property name="defaultEncoding" value="UTF-8"/>
+   </bean>
+
+
+라이브러리 - maven dependencies 라이브러리에 
+commons-fileupload-1.3.3.jar
+commons-io-2.6.jar
+가 추가되어 있을 것이다. 
+
+
+ 3. 폼에 enctype 추가 
+ 	enctype : 전송되는 데이터 형식을 설정
+ 	multipart/form-data는 무조건 POST로 전달시켜야한다.
+<form action='./addCtr.do' method='post'
+			enctype="multipart/form-data">			
+	<input type="file" name="file">
+</form>			
+
+
+ 4. 컨트롤러에는 MultipartHttpServletRequest 파라미터 추가 
+
+ import org.springframework.web.multipart.MultipartHttpServletRequest; 
+ 
+ @RequestMapping(value="/member/addCtr.do", method = RequestMethod.POST)		
+	public String memberAdd(MemberDto memberDto
+			, MultipartHttpServletRequest mulRequest
+			, Model model) {
+			
+ 	}
+
+ 	
+ 	
+ 	
