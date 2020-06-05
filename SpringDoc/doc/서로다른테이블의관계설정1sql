@@ -1,0 +1,52 @@
+
+2020-06-05
+
+	<!-- myBatis기술 : 자동화시킴, 동시에 할 때 편함 -->
+	<insert id="memberInsertOne" parameterType="memberDto"
+		useGeneratedKeys="true" keyProperty="no"> 
+		<!-- useGeneratedKeys : key값을 생성하는 것을 true 하겠다, 활성화
+			keyProperty : selectKey 결과를 no로 담아서 memberDto에 의존한다. 
+			(memberDto에 getter, setter 없었으면 에러)
+		 -->
+		
+		<selectKey keyProperty="no" resultType="int" order="BEFORE">
+		<!-- order: 명령의 우선순위, before이면 (1)sql문이 먼저 수행되고 insert문이 실행된다. 
+			만약, (1)sql문이 에러가 나서 수행되지 않으면 다음의 insert문은 실행되지 않는다. ROLLBACK-->
+			SELECT MEMBER_MNO_SEQ.NEXTVAL FROM DUAL		<!-- (1) -->
+		</selectKey>
+		
+		INSERT INTO MEMBER
+		VALUE(MNO, EMAIL, PWD
+			, MNAME, CRE_DATE, MOD_DATE)
+		VALUES(#{no}
+			, #{email}, #{password}
+			, #{name}, SYSDATE, SYSDATE)
+		<!-- selectKey-keyProperty가 no니까 sql문에서도 no로 쓰면 된다. -->
+	
+	</insert>
+	
+
+	
+	그러면 memberServiceImpl에서 
+	memberInsetOne 시킬 때 
+	간단히 getNo로 입력해서 외래키랑 연결시키기 
+	
+	@Override
+	public void memberInsertOne(MemberDto memberDto
+					, MultipartHttpServletRequest multipartHttpServletRequest) {
+
+		memberDao.memberInsertOne(memberDto);
+		//meber가 부모고 file이 자식으로
+		//1대다 관계이므로
+		//부모 memberInsertOne를 먼저 수행시킨다. 
+		
+		int parentSeq = memberDto.getNo();	//member.no랑 조인
+		
+		List<Map<String,Object>> fileList = 
+					fileUtils.parseInsertFileInfo(parentSeq, multipartHttpServletRequest);
+		
+		
+		
+		
+		
+		

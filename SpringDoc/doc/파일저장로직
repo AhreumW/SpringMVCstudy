@@ -1,0 +1,31 @@
+
+2020-06-03
+
+실제파일, 서버 저장 시 문제사항
+
+StarUML.txt  다이어그램
+
+client 컴퓨터1(박강사), 	client 컴퓨터2(류박사)
+StarUML.txt				새문서.txt
+
+
+네이버 클라우드
+server 컴퓨터1
+
+에 두 사람이 파일을 올린다. 
+
+
+네이버 클라우드
+server 컴퓨터1
+StarUML.txt	- 단, 박강사만 관리가능
+새문서.txt	- 단, 류박사만 관리가능
+
+
+만약 류박사가 StarUML.txt를 올린다면 
+네이버 클라우드
+server 컴퓨터1
+박강사	StarUML.txt	
+류박사	새문서.txt	StarUML.txt	->충돌위험
+
+
+박강사가 계속 같은 이름으로 저장하는 것도 문제가 될 수 있다.
