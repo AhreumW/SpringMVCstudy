@@ -1,0 +1,24 @@
+
+2020-06-08
+
+JSON (JavaScript Object Notation)
+ 경량의 DATA-교환 형식
+ 이상적인 DATA-교환 언어
+ 
+글 -> 파일 -> txt -> xml -> json
+
+https://www.json.org/json-ko.html
+
+
+object는 name/value 쌍들의 비순서화된 SET이다. 
+object는 {좌 중괄호로 시작하고 }우 중괄호로 끝내어 표현한다. 
+각 name 뒤에 :colon을 붙이고 ,comma로 name/value 쌍들 간을 구분한다
+
+	// 문자열은 "로 시작하면 X 
+	// 순서를 반드시 지킬 것! '""'
+var jsonStr = '{"firstName" : "John", "age" : 27, "gender" : "male"}';		
+	
+	// 문자열을 json객체로 바꿔준다.
+var jsonObj = JSON.parse(jsonStr);
+
+value는 큰따옴표안에 string, number ,true ,false , null, object ,array이 올수 있다.
